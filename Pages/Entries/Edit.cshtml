@@ -1,0 +1,45 @@
+@page
+@model BeerComp.Pages.Entries.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BeerEntry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BeerEntry.ID" />
+            <div class="form-group">
+                <label asp-for="BeerEntry.EntryName" class="control-label"></label>
+                <input asp-for="BeerEntry.EntryName" class="form-control" />
+                <span asp-validation-for="BeerEntry.EntryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeerEntry.Category" class="control-label"></label>
+                <select asp-for="BeerEntry.Category" class="form-control"></select>
+                <span asp-validation-for="BeerEntry.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeerEntry.OwnerID" class="control-label"></label>
+                <input asp-for="BeerEntry.OwnerID" class="form-control" />
+                <span asp-validation-for="BeerEntry.OwnerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

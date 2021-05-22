@@ -1,0 +1,64 @@
+@page
+@model BeerComp.Pages.ScoreCards.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ScoreCard</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.TasteScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.TasteScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.LookScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.LookScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.OtherScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.OtherScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.OverallScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.OverallScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.Comments)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.VoterID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.VoterID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ScoreCard.EntryID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ScoreCard.EntryID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ScoreCard.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

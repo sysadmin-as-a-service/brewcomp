@@ -1,0 +1,39 @@
+DONE: Scaffold pages for other models
+DONE: Figure out how to display list of approved categories in a dropdown instead of free text entry
+DONE: Create a page that creates both an Owner and BeerEntry at the same time
+Have created a Create2 page, just need to figure out how to make the Owner email unique,
+to grab the existing OwnerID if they already exist, and to create a new Owner object if it doesnt
+
+Should take a look at this https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-3.0&tabs=visual-studio
+
+DONE: Make the ScoreCard page pull a picklist from the list of available beer entry names
+DONE: Make the ScoreCard model create a voter if they don't already exist
+DONE: Make the Index pages show Owner Emails and BeerEntry names instead of IDs
+DONE: Add ABV to BeerEntry model
+DONE: Make the Comments section on ScoreCard page a long text already
+DONE: Make OverallScore on ScoreCard page auto calculated 
+DONE: Remove the Privacy link from top bar and footer
+DONE: Add menu entries for Add a Beer / Vote for a Beer
+TODO: Make scorecard Index page sorted by OverallScore
+DONE: Remove unnecessary links from index pages (edit/details/delete)
+TODO: Add HTTPS cert to app
+TODO: Create an actual Results page that ADDS all the scorecards together and creates average score!
+
+
+
+Pretty:
+DONE: Change Beers/Voting to font awesome icons
+DONE: Make the home page have three pretty buttons - add beer, vote beer, results
+DONE: Apply OneNet green theme
+TODO: Make OverallScore on ScoreCard page update on the fly (will need to do some JS if I want live update)
+TODO: Make results table sortable?
+DONE: Make results show fewer decimal places
+TODO: Change beer categories from an enum to a selectlist (so we can have spaces in names)
+DONE: Rename header on Entries/Create page
+DONE: Make the copyright footer cooler
+TODO: improve the menu and homepage layouts
+
+Azure:
+DONE: Change the database source to Azure SQL database
+DONE: Create docker container from project and test
+TODO: Build AKS instance and test deploying

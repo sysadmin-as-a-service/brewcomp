@@ -1,0 +1,49 @@
+@page
+@model BeerComp.Pages.Entries.IndexModel
+
+@{
+    ViewData["Title"] = "Beer Entries";
+}
+
+<h1>Beer Entries</h1>
+
+<p>
+    <a asp-page="Create">Add Beer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>           
+            <th>
+                @Html.DisplayNameFor(model => model.BeerEntry[0].EntryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeerEntry[0].Category)
+            </th>
+            <th>
+                <!-- @Html.DisplayNameFor(model => model.BeerEntry[0].OwnerID) -->
+                Owner
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BeerEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.Email)
+            </td>
+            <td>
+                <a asp-page="../Entries/Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="../Entries/Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="../Entries/Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

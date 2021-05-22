@@ -1,0 +1,78 @@
+@page
+@model BeerComp.Pages.ScoreCards.IndexModel
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Results</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].Entry.EntryName) *@
+                Beer
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].Voter.Email) *@
+                Rater
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].TasteScore) *@
+                Taste
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].LookScore) *@
+                Look & Feel
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].OtherScore) *@
+                Other
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ScoreCard[0].OverallScore) *@
+                Total
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreCard[0].Comments)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ScoreCard) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entry.EntryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voter.Email)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.TasteScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LookScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+
+
+            <td>
+                <a asp-page="../ScoreCards/Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="../ScoreCards/Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="../ScoreCards/Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

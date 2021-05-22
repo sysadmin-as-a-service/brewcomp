@@ -1,0 +1,54 @@
+@page
+@model BeerComp.Pages.Entries.CreateModel2
+
+@{
+    ViewData["Title"] = "Add Beer";
+}
+<h1>Add Beer</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Owner.Email" class="control-label">Your Email Address</label>
+                <input asp-for="Owner.Email" class="form-control" />
+                <span asp-validation-for="Owner.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeerEntry.EntryName" class="control-label">Name of your beer</label>
+                <input asp-for="BeerEntry.EntryName" class="form-control" />
+                <span asp-validation-for="BeerEntry.EntryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeerEntry.ABV" class="control-label">ABV (%)</label>
+                <input asp-for="BeerEntry.ABV" class="form-control" />
+                <span asp-validation-for="BeerEntry.ABV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeerEntry.Category" class="control-label"></label>
+                <select asp-for="BeerEntry.Category" asp-items="Html.GetEnumSelectList<BeerComp.Models.BeerCategory>()" class="form-control">
+                    <option value="">Select an entry category</option>
+                </select>
+                <span asp-validation-for="BeerEntry.Category" class="text-danger"></span>
+            </div>
+<!--             <div class="form-group">
+                <label asp-for="BeerEntry.OwnerID" class="control-label"></label>
+                <input asp-for="BeerEntry.OwnerID" class="form-control" />
+                <span asp-validation-for="BeerEntry.OwnerID" class="text-danger"></span>
+            </div> -->
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

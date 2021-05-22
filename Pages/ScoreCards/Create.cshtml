@@ -1,0 +1,76 @@
+@page
+@model BeerComp.Pages.ScoreCards.CreateModel
+
+@{
+    ViewData["Title"] = "Rate Beer";
+}
+
+<h1>Rate Beer</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Voter.Email" class="control-label">Your Email Address</label>
+                <input asp-for="Voter.Email" class="form-control" />
+                <span asp-validation-for="Voter.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ScoreCard.EntryID" class="control-label">Select Beer</label>
+                <select asp-for="ScoreCard.EntryID" asp-items="Model.BeerEntries" class="form-control">Select Entry</select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ScoreCard.TasteScore" class="control-label">Taste (0-10)</label>
+                <input asp-for="ScoreCard.TasteScore" class="form-control" />
+                <span asp-validation-for="ScoreCard.TasteScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreCard.LookScore" class="control-label">Look & Feel (0-10)</label>
+                <input asp-for="ScoreCard.LookScore" class="form-control" />
+                <span asp-validation-for="ScoreCard.LookScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreCard.OtherScore" class="control-label">Other (0-10)</label>
+                <input asp-for="ScoreCard.OtherScore" class="form-control" />
+                <span asp-validation-for="ScoreCard.OtherScore" class="text-danger"></span>
+            </div>
+<!--             <div class="form-group">
+                <label asp-for="ScoreCard.OverallScore" class="control-label">Overall Score</label>
+                <input asp-for="ScoreCard.OverallScore" class="form-control" />
+                <span asp-validation-for="ScoreCard.OverallScore" class="text-danger"></span>
+            </div> -->            
+            <div class="form-group">
+                <label asp-for="ScoreCard.Comments" class="control-label"></label>
+                <textarea asp-for="ScoreCard.Comments" class="form-control"></textarea>
+                <span asp-validation-for="ScoreCard.Comments" class="text-danger"></span>
+            </div>
+            <!-- 
+            <div class="form-group">
+                <label asp-for="ScoreCard.VoterID" class="control-label"></label>
+                <input asp-for="ScoreCard.VoterID" class="form-control" />
+                <span asp-validation-for="ScoreCard.VoterID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreCard.EntryID" class="control-label"></label>
+                <input asp-for="ScoreCard.EntryID" class="form-control" />
+                <span asp-validation-for="ScoreCard.EntryID" class="text-danger"></span>
+            </div> 
+            -->
+            <div class="form-group">
+                <input type="submit" value="Rate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

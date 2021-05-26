@@ -27,11 +27,11 @@ namespace BeerComp
         {
             services.AddRazorPages();
 
-            services.AddDbContext<BeerCompContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("BeerCompContext")) );
+            // services.AddDbContext<BeerCompContext>(options =>
+                // options.UseSqlServer(Configuration.GetConnectionString("BeerCompContext")) );
 
-            //services.AddDbContext<BeerCompContext>(options =>
-            //    options.UseSqlite(Configuration.GetConnectionString("BeerCompContext")));
+            services.AddDbContext<BeerCompContext>(options =>
+               options.UseSqlite(Configuration.GetConnectionString("BeerCompContext")));
 
             // Automatically perform database migration
             services.BuildServiceProvider().GetService<BeerCompContext>().Database.Migrate();
